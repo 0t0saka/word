@@ -80,7 +80,7 @@ export default {
         scope: ["identify", "email"],
         responseType: "code",
         grantType: "authorization_code",
-       redirectUri: process.env.REDIRECT_URI,
+       redirectUri: "http://localhost:3000/auth/callback"
       },
     },
   },
