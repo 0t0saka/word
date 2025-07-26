@@ -68,6 +68,20 @@ export default {
         redirectUri: "http://localhost:3000/auth/callback",
         codeChallengeMethod: "",
       },
+        discord: {
+       scheme: "oauth2",
+        endpoints: {
+        authorization: "https://discord.com/api/oauth2/authorize",
+        token: "https://discord.com/api/oauth2/token",
+        userInfo: "https://discord.com/api/users/@me"
+      },
+        clientId: "1398511573592440832",
+        clientSecret: "cZX0ifXiYjaMz_mD6t-yvt0tbesVKSa6",
+        scope: ["identify", "email"],
+        responseType: "code",
+        grantType: "authorization_code",
+       redirectUri: "http://localhost:3000/auth/callback"
+      },
     },
   },
   axios: {

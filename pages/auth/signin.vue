@@ -29,6 +29,14 @@
                     <v-btn  color="red" size="large" variant="elevated" @click="signInwithGoogle()" block rounded>
                         SIGN IN WITH GOOGLE
                     </v-btn>
+                    <v-divider class="my-5">
+                       <v-text-field>OR</v-text-field>
+                    </v-divider>
+                    
+                        
+                    <v-btn color="blue" size="large" variant="elevated" @click="signInWithDiscord" block rounded>
+                          SIGN IN WITH DISCORD
+                    </v-btn>
                 </v-form>
                 
             </v-card-text>
@@ -37,17 +45,19 @@
     </div>
 </template>
 <script>
-export default{
-    layout:"auth",
-   middleware: "guest",
-    methods:{
-        signInwithGoogle(){
-           this.$auth.loginWith('google')
-           console.log("Signin with google")
-        }
+export default {
+  layout: "auth",
+  middleware: "guest",
+  methods: {
+    signInwithGoogle() {
+      this.$auth.loginWith('google')
+      console.log("Signin with google")
+    },
+    signInWithDiscord() {
+      this.$auth.loginWith('discord')
     }
-
-
+  }
 }
+
 </script>
  
