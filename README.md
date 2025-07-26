@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # word_translator
 
 > My legendary Nuxt.js project
@@ -20,3 +21,6 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+=======
+# word
+>>>>>>> 7df46d94a866acb690768a95f2b98d0d338dc2a9
