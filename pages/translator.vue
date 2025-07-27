@@ -1,29 +1,42 @@
 <template>
-    <div class="container">
-        <div class="wrapper">
-            <div class="text-input">
-                <textarea v-model="fromText" placeholder="Enter text" spellcheck="false"></textarea>
-                <textarea v-model="toText" placeholder="Translation" spellcheck="false" readonly disabled></textarea>
-            </div>
-            <ul class="controls">
-                <li class="row from">
-                    <select ref="selectFrom"></select>
-                    <i class="fas fa-volume-up" @click="speak(fromText, fromLang)"></i>
-                    <i class="fas fa-copy" @click="copy(fromText)"></i>
-                </li>
-                <li class="exchange" @click="exchangeText">
-                    <i class="fas fa-exchange-alt"></i>
-                </li>
-                <li class="row to">
-                    <select ref="selectTo"></select>
-                    <i class="fas fa-volume-up" @click="speak(toText, toLang)"></i>
-                    <i class="fas fa-copy" @click="copy(toText)"></i>
-                </li>
-            </ul>
+  <div class="translate-container">
+    <div class="translate-card">
+      <h2 class="title">Language Translator</h2>
+
+      <div class="text-input">
+        <div class="box">
+          <label>From</label>
+          <textarea v-model="fromText" placeholder="Enter text" spellcheck="false"></textarea>
         </div>
-        <v-btn color="primary" @click="translateText">Translate</v-btn>
+        <div class="box">
+          <label>To</label>
+          <textarea v-model="toText" placeholder="Translation" spellcheck="false" readonly disabled></textarea>
+        </div>
+      </div>
+
+      <ul class="controls">
+        <li class="row">
+          <select ref="selectFrom"></select>
+          <i class="fas fa-volume-up" @click="speak(fromText, fromLang)"></i>
+          <i class="fas fa-copy" @click="copy(fromText)"></i>
+        </li>
+
+        <li class="exchange" @click="exchangeText">
+          <i class="fas fa-exchange-alt"></i>
+        </li>
+
+        <li class="row">
+          <select ref="selectTo"></select>
+          <i class="fas fa-volume-up" @click="speak(toText, toLang)"></i>
+          <i class="fas fa-copy" @click="copy(toText)"></i>
+        </li>
+      </ul>
+
+      <v-btn class="translate-btn" color="primary" @click="translateText">Translate</v-btn>
     </div>
+  </div>
 </template>
+
 
 <script>
 export default {
@@ -92,57 +105,104 @@ export default {
 </script>
 
 <style scoped>
-.container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
+.translate-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  background: #121212;
 }
 
-.wrapper {
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 20px;
+.translate-card {
+  background: #1e1e1e;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  width: 90%;
+  max-width: 850px;
+}
+
+.title {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .text-input {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.box label {
+  color: #ccc;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
 }
 
 .text-input textarea {
-    width: 100%;
-    height: 120px;
-    padding: 10px;
-    font-size: 16px;
-    resize: none;
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #ccc;
+  width: 100%;
+  height: 140px;
+  padding: 12px;
+  font-size: 16px;
+  resize: none;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background-color: #fff;
+  color: #000;
+  box-sizing: border-box;
 }
 
 .controls {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  color: #ddd;
 }
 
 .controls li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .controls select {
-    padding: 5px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #2a2a2a;
+  color: #fff;
 }
 
 .controls i {
-    cursor: pointer;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.controls i:hover {
+  transform: scale(1.2);
+  color: #4dabf7;
 }
 
 .exchange {
-    align-self: center;
-    font-size: 20px;
-    cursor: pointer;
+  font-size: 22px;
+  cursor: pointer;
+  color: #4dabf7;
+}
+
+.translate-btn {
+  display: block;
+  margin: 0 auto;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 </style>
