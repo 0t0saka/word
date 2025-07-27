@@ -51,8 +51,7 @@ export default {
     autoFetchUser: false,
     strategies: {
       google: {
-        clientId:
-          "752811676294-0ghrvktkkresbmqf723sb4dj37j92dlc.apps.googleusercontent.com",
+        clientId:"752811676294-0ghrvktkkresbmqf723sb4dj37j92dlc.apps.googleusercontent.com",
         scheme: "oauth2",
         endpoints: {
           authorization: "https://accounts.google.com/o/oauth2/auth",
@@ -60,7 +59,7 @@ export default {
         },
         token: {
           property: "access_token",
-          type: "Bearer",
+          type:"Bearer",
           maxAge: 1800,
         },
         responseType: "token id_token",
@@ -75,8 +74,8 @@ export default {
         token: "https://discord.com/api/oauth2/token",
         userInfo: "https://discord.com/api/users/@me"
       },
-        clientId: "1398511573592440832",
-        clientSecret: "cZX0ifXiYjaMz_mD6t-yvt0tbesVKSa6",
+        clientId: process.env.DISCORD_CLIENT,
+        clientSecret: process.env.DISCORD_SECRET,
         scope: ["identify", "email"],
         responseType: "code",
         grantType: "authorization_code",

@@ -34,7 +34,7 @@
                     </v-divider>
                     
                         
-                    <v-btn color="blue" size="large" variant="elevated" @click="signInWithDiscord" block rounded>
+                    <v-btn color="blue" size="large" variant="elevated" @click="signInWithDiscord()" block rounded>
                           SIGN IN WITH DISCORD
                     </v-btn>
                 </v-form>
@@ -47,7 +47,7 @@
 <script>
 export default {
   layout: "auth",
-  middleware: "guest",
+  middleware: 'guest',
   methods: {
     signInwithGoogle() {
       this.$auth.loginWith('google')

@@ -1,6 +1,5 @@
 <template>
-    <div class="p-4"> Signing you in.... </div>
-
+    <div class="p-4">Signing you in...</div>
 </template>
 <script>
 export default {
@@ -9,7 +8,7 @@ export default {
             await this.$auth.fetchUser()
             this.$router.replace('/')
         } catch (error) {
-            console.error('Login failed:', error);
+            console.error('Login failed:', error)
             this.$router.push('/auth/signin')
         }
     }
